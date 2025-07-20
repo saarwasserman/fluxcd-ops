@@ -1,0 +1,14 @@
+# repository where the app deployment kustomization are stored
+
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: demo-python-app
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  url: https://github.com/saarwasserman/demo-python-app.git
+  ref:
+    branch: dev
+  secretRef:
+    name: flux-system

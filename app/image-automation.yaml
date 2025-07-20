@@ -1,0 +1,19 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageUpdateAutomation
+metadata:
+  name: demo-python-app-automation
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  sourceRef: 
+    name: demo-python-app
+  update:
+    strategy: Setters
+    path: "deploy/overlays/dev"
+  git:
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+    push:
+      branch: dev
