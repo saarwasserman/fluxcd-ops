@@ -1,0 +1,10 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: demo-python-app
+  namespace: flux-system
+spec:
+  image: docker.io/saarwasserman/demo-python-app
+  interval: 1m0s
+  secretRef:
+    name: flux-dockerhub-secret  # Secret for accessing your Docker registry
