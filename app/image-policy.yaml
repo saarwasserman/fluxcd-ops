@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   imageRepositoryRef:
-    name: demo-python-app  # Reference to the ImageRepository Resource
+    name: demo-python-app
   policy:
     semver:
       range: ">= 0.0.0"

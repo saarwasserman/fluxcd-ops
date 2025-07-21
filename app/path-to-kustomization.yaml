@@ -10,6 +10,4 @@ spec:
   sourceRef:
     kind: GitRepository
     name: demo-python-app
-  images:
-    - name: saarwasserman/demo-python-app
-      newTag: "latest"
+

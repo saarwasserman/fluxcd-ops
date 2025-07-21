@@ -5,12 +5,18 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  sourceRef: 
+  # imageRepositoryRef:
+  #   name: demo-python-app
+  sourceRef:
+    kind: GitRepository
     name: demo-python-app
   update:
     strategy: Setters
     path: "deploy/overlays/dev"
   git:
+    checkout:
+      ref:
+        branch: dev
     commit:
       author:
         email: fluxcdbot@users.noreply.github.com
