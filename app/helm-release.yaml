@@ -4,13 +4,14 @@ metadata:
   name: demo-python-app
   namespace: flux-system
 spec:
-  releaseName: demo-python-app
   chart:
     spec:
       chart: "./charts"
       sourceRef:
         kind: GitRepository
         name: demo-python-app
+      valuesFiles:
+        - ./charts/values.yaml
   interval: 1m
-  values:
-    appVersion: v0.1.5 # {"$imagepolicy": "flux-system:demo-python-app:tag"}
+  # values:
+  #   appVersion: v0.1.5  # {"$imagepolicy": "flux-system:demo-python-app:tag"}
