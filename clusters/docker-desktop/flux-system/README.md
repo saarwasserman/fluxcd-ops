@@ -41,7 +41,7 @@ flux create image update demo-python-app-auto-update \
   flux bootstrap github \
   --token-auth \
   --owner=saarwasserman \
-  --repository=fleet-infra \
+  --repository=fluxcd-ops \
   --branch=main \
   --path=clusters/docker-desktop \
   --personal \
@@ -57,3 +57,6 @@ kubectl create secret docker-registry flux-dockerhub-secret \
   --docker-username=<your-docker-username> \
   --docker-password=<your-docker-access-token> \
   --docker-email=<your-email>
+
+
+# to change "repo-name" try bootstrap again, change the GitRepository url and in github
