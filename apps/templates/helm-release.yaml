@@ -1,0 +1,20 @@
+{{- range $app := .Values.apps }}
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: {{ $app.appName }}
+  namespace: {{ $app.namespace }}
+  labels:
+    app: {{ $app.appName }}
+spec:
+  chart:
+    spec:
+      chart: ./apps/{{ $app.appName }}
+      sourceRef:
+        kind: GitRepository
+        name: {{ $.Values.chartsRepoName }}
+        namespace: flux-system
+      valuesFiles:
+        - ./apps/{{ $app.appName }}/values-{{ $.Values.env }}.yaml
+  interval: 1m
+{{ end }}

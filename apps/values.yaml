@@ -1,0 +1,11 @@
+
+
+gitBaseUrl: https://github.com/saarwasserman
+
+baseImageName: docker.io/saarwasserman
+
+chartsRepoName: charts-ops
+
+apps:
+  - appName: demo-python-app
+    namespace: apps

@@ -1,10 +1,14 @@
+{{- range $app := .Values.apps }}
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
-  name: demo-python-app
+  name: {{ $app.appName }}-image-repo
   namespace: flux-system
+  labels:
+    app: {{ $app.appName }}
 spec:
-  image: docker.io/saarwasserman/demo-python-app
+  image: {{ $.Values.baseImageName }}/{{ $app.appName }}
   interval: 1m0s
   secretRef:
     name: flux-dockerhub-secret  # Secret for accessing your Docker registry
+{{ end }}
