@@ -14,7 +14,11 @@ spec:
         kind: GitRepository
         name: {{ $.Values.chartsRepoName }}
         namespace: flux-system
+      # important: if not present will only reconcile on chart version change and no other git changes
+      # default was 'Chart Version'
+      reconcileStrategy: Revision 
       valuesFiles:
+        - ./apps/{{ $app.appName }}/values.yaml
         - ./apps/{{ $app.appName }}/values-{{ $.Values.env }}.yaml
   interval: 1m
 {{ end }}
